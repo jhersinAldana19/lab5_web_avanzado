@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario de Pago</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="form-container">
+    <h1>Formulario de Pago</h1>
+
+    {{#if message}}
+      <p class="error">{{message}}</p>
+    {{/if}}
+
+    <form action="/pago" method="POST">
+      <div class="form-group">
+        <label for="monto">Monto:</label>
+        <input type="text" name="monto" required>
+      </div>
+
+      <div class="form-group">
+        <label for="metodoPago">Método de Pago:</label>
+        <select name="metodoPago" required>
+          <option value="tarjeta">Tarjeta</option>
+          <option value="transferencia">Transferencia Bancaria</option>
+          <option value="paypal">PayPal</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="fecha">Fecha del Pago:</label>
+        <input type="date" name="fecha" required>
+      </div>
+
+      <button type="submit">Pagar</button>
+    </form>
+  </div>
+</body>
+</html>
